@@ -1,8 +1,5 @@
 package com.ebnspr.di.constructor.circular;
 
-/**
- * Created by kiwi on 8/27/2016.
- */
 public class A {
     private B b;
 

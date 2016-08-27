@@ -4,9 +4,6 @@ import com.ebnspr.di.constructor.circular.A;
 import com.ebnspr.di.constructor.circular.B;
 import org.springframework.context.annotation.*;
 
-/**
- * Created by kiwi on 8/27/2016.
- */
 @Configuration
 @ComponentScan(basePackages = "com.ebnspr.di.constructor.circular")
 class Config {

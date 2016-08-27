@@ -1,4 +1,4 @@
-package com.ebnspr.di.constructor.circular.solution1;
+package com.ebnspr.di.constructor.circular.problem;
 
 import com.ebnspr.di.constructor.circular.A;
 import org.junit.Test;
@@ -11,17 +11,19 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
 /**
- * Created by kiwi on 8/27/2016.
+ * This test should fail during context loading because of circular dependency in constructor.
+ * TODO: find out why java.lang.NoClassDefFoundError: org.springframework.beans.FatalBeanException
+ * is thrown even though debugging showed that the original exception was java.lang.StackOverflowError
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = com.ebnspr.di.constructor.circular.solution1.Config.class)
-public class ConstructorCircularDependencyFixedWithProxiesTest {
+@ContextConfiguration(classes = com.ebnspr.di.constructor.circular.problem.Config.class)
+public class CircularDependencyProblemTest {
 
     @Autowired
     private A a;
 
     @Test
-    public void injectBtoA() {
+    public void circularDependencyInConstructorInjection() {
         final String hi = a.getB().sayHi();
         assertThat(hi, equalTo("Hi"));
     }
