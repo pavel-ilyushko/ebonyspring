@@ -1,4 +1,4 @@
-package com.ebnspr.di.constructor.circular.solution;
+package com.ebnspr.di.constructor.circular.solution1;
 
 import com.ebnspr.di.constructor.circular.A;
 import org.junit.Test;
@@ -14,7 +14,7 @@ import static org.hamcrest.Matchers.equalTo;
  * Created by kiwi on 8/27/2016.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = com.ebnspr.di.constructor.circular.solution.Config.class)
+@ContextConfiguration(classes = com.ebnspr.di.constructor.circular.solution1.Config.class)
 public class ConstructorCircularDependencyFixedWithProxiesTest {
 
     @Autowired

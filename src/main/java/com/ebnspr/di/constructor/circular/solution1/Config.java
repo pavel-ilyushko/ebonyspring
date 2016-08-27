@@ -1,4 +1,4 @@
-package com.ebnspr.di.constructor.circular.solution;
+package com.ebnspr.di.constructor.circular.solution1;
 
 import com.ebnspr.di.constructor.circular.A;
 import com.ebnspr.di.constructor.circular.B;
