@@ -3,11 +3,14 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 
+// exclude debug info
+// compileJava.options.compilerArgs = ['-g:none']
+
 repositories {
     mavenCentral()
 }
 
-//1. exclude commons-logging
+// exclude commons-logging
 configurations.all {
     exclude group: "commons-logging", module: "commons-logging"
 }
