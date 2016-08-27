@@ -4,6 +4,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -18,24 +20,27 @@ import static org.hamcrest.Matchers.equalTo;
 @Transactional
 public class TransactionProblemTest {
 
+    private static final Logger logger = LoggerFactory.getLogger(TransactionProblemTest.class);
+
     @Autowired
     JdbcRepository jdbcRepository;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         jdbcRepository.createDatabase();
+        logger.info("Created test database");
         assertThat(jdbcRepository.getNumberOfRows(), equalTo(0));
     }
 
     @Test
-    public void insertRow(){
+    public void insertRow() {
         jdbcRepository.insertRow();
         assertThat(jdbcRepository.getNumberOfRows(), equalTo(1));
         assertThat(jdbcRepository.getRow(), equalTo("tx_required"));
     }
 
     @Test
-    public void insertRowInNewTransaction(){
+    public void insertRowInNewTransaction() {
         jdbcRepository.insertRowInNewTx();
         assertThat(jdbcRepository.getNumberOfRows(), equalTo(1));
         assertThat(jdbcRepository.getRow(), equalTo("tx_requires_new"));
