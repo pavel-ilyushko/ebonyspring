@@ -3,19 +3,19 @@ package com.ebnspr.di.constructor.circular;
 /**
  * Created by kiwi on 8/27/2016.
  */
-class B {
+public class B {
 
     private A a;
 
-    B(A a) {
+    public  B(A a) {
         this.a = a;
     }
 
-    String sayHi() {
+    public String sayHi() {
         return "Hi";
     }
 
-    A getA() {
+    public A getA() {
         return a;
     }
 }

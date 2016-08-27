@@ -1,5 +1,7 @@
-package com.ebnspr.di.constructor.circular;
+package com.ebnspr.di.constructor.circular.solution;
 
+import com.ebnspr.di.constructor.circular.A;
+import com.ebnspr.di.constructor.circular.B;
 import org.springframework.context.annotation.*;
 
 /**
@@ -7,7 +9,7 @@ import org.springframework.context.annotation.*;
  */
 @Configuration
 @ComponentScan(basePackages = "com.ebnspr.di.constructor.circular")
-class Config {
+public class Config {
 
     @Bean
     @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)

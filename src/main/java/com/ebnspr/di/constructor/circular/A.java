@@ -3,14 +3,14 @@ package com.ebnspr.di.constructor.circular;
 /**
  * Created by kiwi on 8/27/2016.
  */
-class A {
+public class A {
     private B b;
 
-    A(B b) {
+    public A(B b) {
         this.b = b;
     }
 
-    B getB() {
+    public B getB() {
         return b;
     }
 }
