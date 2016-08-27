@@ -1,5 +1,6 @@
 package com.ebnspr.di.constructor.circular.problem;
 
+
 import com.ebnspr.di.constructor.circular.A;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,8 +17,8 @@ import static org.hamcrest.Matchers.equalTo;
  * is thrown even though debugging showed that the original exception was java.lang.StackOverflowError
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = com.ebnspr.di.constructor.circular.problem.Config.class)
-public class CircularDependencyProblemTest {
+@ContextConfiguration(classes = com.ebnspr.di.constructor.circular.problem.CircularDependencyCtrProblemConfig.class)
+public class CircularDependencyCtrProblemConfigTest {
 
     @Autowired
     private A a;

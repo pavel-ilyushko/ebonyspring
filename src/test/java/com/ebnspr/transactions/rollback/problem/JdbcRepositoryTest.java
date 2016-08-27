@@ -18,9 +18,9 @@ import static org.hamcrest.Matchers.equalTo;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = Config.class)
 @Transactional
-public class TransactionProblemTest {
+public class JdbcRepositoryTest {
 
-    private static final Logger logger = LoggerFactory.getLogger(TransactionProblemTest.class);
+    private static final Logger logger = LoggerFactory.getLogger(JdbcRepositoryTest.class);
 
     @Autowired
     JdbcRepository jdbcRepository;
@@ -59,7 +59,4 @@ public class TransactionProblemTest {
     public void afterTestCompletedAndTransactionRolledBackBySpring() {
         assertThat(jdbcRepository.getNumberOfRows(), equalTo(0)); // fails for REQUIRES_NEW tx
     }
-
-
-
 }

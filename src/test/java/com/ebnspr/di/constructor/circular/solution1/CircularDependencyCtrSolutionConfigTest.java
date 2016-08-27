@@ -11,8 +11,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = com.ebnspr.di.constructor.circular.solution1.Config.class)
-public class CircularDependencySolutionTest {
+@ContextConfiguration(classes = com.ebnspr.di.constructor.circular.solution1.CircularDependencyCtrSolutionConfig.class)
+public class CircularDependencyCtrSolutionConfigTest {
 
     @Autowired
     private A a;
