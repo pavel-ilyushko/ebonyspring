@@ -1,4 +1,4 @@
-package com.ebnspr.transactions.problem;
+package com.ebnspr.transactions.rollback.problem;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

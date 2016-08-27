@@ -1,4 +1,4 @@
-package com.ebnspr.transactions.problem;
+package com.ebnspr.transactions.rollback.problem;
 
 import org.junit.After;
 import org.junit.Before;
@@ -16,7 +16,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = com.ebnspr.transactions.problem.Config.class)
+@ContextConfiguration(classes = Config.class)
 @Transactional
 public class TransactionProblemTest {
 
