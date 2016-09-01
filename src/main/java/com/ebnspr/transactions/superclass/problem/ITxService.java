@@ -2,9 +2,11 @@ package com.ebnspr.transactions.superclass.problem;
 
 import org.springframework.transaction.annotation.Transactional;
 
-public abstract class TxService {
+/**
+ * Created by pilyushko on 01.09.2016.
+ */
+public interface ITxService {
 
     @Transactional
-    public abstract void callLikeInTransactionFromSuperClass();
-
+    void callLikeInTransactionFromInterface();
 }

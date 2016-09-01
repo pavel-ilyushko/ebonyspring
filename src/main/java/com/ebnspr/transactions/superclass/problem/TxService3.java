@@ -3,12 +3,7 @@ package com.ebnspr.transactions.superclass.problem;
 import com.ebnspr.transactions.utils.TxUtils;
 import org.springframework.transaction.annotation.Transactional;
 
-public class TxService2 extends TxService implements ITxService {
-
-    @Override
-    public void callLikeInTransactionFromSuperClass() {
-        TxUtils.checkTxStatus(this.getClass());
-    }
+public class TxService3 implements ITxService {
 
     @Transactional
     public void callInTransaction() {

@@ -5,6 +5,8 @@ import javax.sql.DataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
@@ -23,8 +25,14 @@ public class Config {
     }
 
     @Bean
-    public TxService2 txService() {
+    @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
+    public TxService2 txService2() {
         return new TxService2();
+    }
+
+    @Bean
+    public ITxService txService3() {
+        return new TxService3();
     }
 
     @Bean
