@@ -10,13 +10,17 @@ public class TxService {
         TxUtils.checkTxStatus(this.getClass());
     }
 
-    public void callLikeInTransaction() {
+    public void callLikeInTransactionNoProxy() {
         callInTransaction();
     }
 
     @Transactional
-    void callLikeInTransaction2() {
+    void callLikeInTransactionNonPublic() {
         TxUtils.checkTxStatus(this.getClass());
     }
 
+    @Transactional
+    public final void callLikeInTransactionFinal() {
+        TxUtils.checkTxStatus(this.getClass());
+    }
 }

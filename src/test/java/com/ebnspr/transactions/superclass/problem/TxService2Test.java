@@ -25,17 +25,17 @@ public class TxService2Test {
     }
 
     @Test
-    public void callLikeInTransaction() {
+    public void callLikeInTransactionFromSuperClass() {
         txService2.callLikeInTransactionFromSuperClass();
     }
 
     @Test
-    public void callLikeInTransaction2() {
+    public void callLikeInTransactionFromInterfaceOnConcreteClass() {
         txService2.callLikeInTransactionFromInterface();
     }
 
     @Test
-    public void callLikeInTransaction2Interface() {
+    public void callLikeInTransactionFromInterface() {
         txService3.callLikeInTransactionFromInterface();
     }
 }
