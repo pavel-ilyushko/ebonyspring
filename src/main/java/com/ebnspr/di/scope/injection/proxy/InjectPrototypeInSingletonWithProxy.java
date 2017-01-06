@@ -40,6 +40,21 @@ public class InjectPrototypeInSingletonWithProxy {
     static class Singleton {
         @Autowired
         PrototypeWithProxy prototypeWithProxy;
+
+        public PrototypeWithProxy getPrototypeWithProxy() {
+            return prototypeWithProxy;
+        }
+
+        public void setPrototypeWithProxy(PrototypeWithProxy prototypeWithProxy) {
+            this.prototypeWithProxy = prototypeWithProxy;
+        }
+
+        public Integer calculateX() {
+            final PrototypeWithProxy aProxy = getPrototypeWithProxy();
+            aProxy.setX(1); // calling a method on proxy will create a new prototype
+            Integer result = aProxy.getX(); // getX() will create another prototype with x not set
+            return result;
+        }
     }
 
     @ComponentScan("com.ebnspr.di.scope.injection.proxy")
@@ -53,9 +68,8 @@ public class InjectPrototypeInSingletonWithProxy {
 
         //when
         final Singleton singleton = ctx.getBean(Singleton.class);
+        final Integer x = singleton.calculateX();
 
-        singleton.prototypeWithProxy.setX(1); // calling a method on proxy is done on a new object
-        assertNull(singleton.prototypeWithProxy.getX()); // so getX() is called on a new prototype with x not set
-
+        assertNull(x);
     }
 }
