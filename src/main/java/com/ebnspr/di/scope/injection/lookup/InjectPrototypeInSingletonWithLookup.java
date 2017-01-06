@@ -49,9 +49,9 @@ public class InjectPrototypeInSingletonWithLookup {
         }
 
         public Integer calculateX() {
-            final Prototype aProxy = getPrototype();
-            aProxy.setX(1);
-            Integer result = aProxy.getX();
+            final Prototype prototype = getPrototype();
+            prototype.setX(1);
+            Integer result = prototype.getX();
             return result;
         }
     }

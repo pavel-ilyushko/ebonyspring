@@ -11,12 +11,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.inject.Provider;
+
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 /**
- * To insert a prototype bean into a singleton one it's better to user the Provider.
+ * To insert a prototype bean into a singleton one can user a javax.inject.Provider.
  * Thus we can control when exactly a prototype is recreated by calling Provider.get().
  * This maybe useful if we want to create a prototype, store some state into it, reuse it,
  * and then finally discard it.
@@ -41,10 +43,10 @@ public class InjectPrototypeInSingletonWithProvider {
     }
 
     @Component
-    static class SingletonWithProvider {
+    static class Singleton {
 
         @Autowired
-        javax.inject.Provider<Prototype> provider;
+        Provider<Prototype> provider;
 
     }
 
@@ -58,7 +60,7 @@ public class InjectPrototypeInSingletonWithProvider {
         final ApplicationContext ctx = new AnnotationConfigApplicationContext(Config.class);
 
         //when
-        final SingletonWithProvider singletonWithProvider = ctx.getBean(SingletonWithProvider.class);
+        final Singleton singletonWithProvider = ctx.getBean(Singleton.class);
 
         final Prototype prototype1 = singletonWithProvider.provider.get();
         final Prototype prototype2 = singletonWithProvider.provider.get();
